@@ -1,6 +1,7 @@
 import React from "react"
 
 const FeedIndex =({posts})=>{
+    debugger
   
     const displayResults = posts.map(post=>{
         return(
@@ -13,6 +14,7 @@ const FeedIndex =({posts})=>{
                     <img src= {post.pictures} className="postPic" alt=""></img>
                     <div className="caption">
                         <label>{post.captions}</label>
+                        
                     </div>
                 </div>
             </div>

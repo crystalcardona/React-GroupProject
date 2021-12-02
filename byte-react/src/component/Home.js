@@ -6,17 +6,18 @@ import UserDisplay from "./helpme/userInfo"
 import CreatePost from "../component/createPost";
 import "../css/home.css"
 import image from './../css/Assets/bytesLogo.jpg';
+import {apiUrl} from '../utility/apiUrl'
 
 const Home = () => {
 
 
     const [posts, setPosts ] = useState([])
     const [userInfo, setUserInfo ] = useState([])
-
+    const API = apiUrl()
     
     const getPosts = async (str="") =>{
         try{
-            let res = await axios.post("http://localhost:3001/hashtag/getHashtag", {hashtag: str})
+            let res = await axios.post(`${API}/hashtag/getHashtag`, {hashtag: str})
             
             let postArr = res.data.payload
             if(postArr.length === 0 ){
@@ -24,7 +25,6 @@ const Home = () => {
                     pictures: "https://cdn.windowsreport.com/wp-content/uploads/2019/02/Ddkmd.sys-blue-screen-errors-in-Windows.jpg",
                     captions:"No Results Found"}])
             } else{
-
                 setPosts(res.data.payload)
             }
             
@@ -44,8 +44,8 @@ const Home = () => {
         try{
             let user = localStorage.getItem("currentUserID")
            
-            let res = await axios.get(`http://localhost:3001/users/${user}`)
-      
+            let res = await axios.get(`${API}/users/${user}`)
+    
             setUserInfo(res.data.payload)
          } catch (err){ 
             console.log(err)
@@ -65,7 +65,6 @@ const Home = () => {
             </div>
             <div className="Banner">
                 <div className="Search">
-                    <h2>Search by Hastag</h2>
                     <SearchBar handleSubmit={handleSubmit} />
                 </div>
             </div>
@@ -73,12 +72,15 @@ const Home = () => {
                 <UserDisplay userInfo = {userInfo} />
             </div>
             <div className="UserFeed">
-                <div className="UserInputs">
-                    <h2>Create a Post</h2>
-                    <CreatePost getPosts = {getPosts}/>
+                <div className="Header">
+                </div>
+                <div className="left">
+                <div className="createPost">
+                    <CreatePost getPosts={getPosts} />
                 </div>
                 <div className="HomeFeed">
                     <FeedIndex posts={posts} />
+                </div>
                 </div>
             </div>
         </div>

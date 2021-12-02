@@ -1,67 +1,69 @@
 .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "GroupPicture SignUp";
-  }
-  .GroupPicture { grid-area: GroupPicture;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* margin: auto; */
-    margin-left: 40%;
-  }
-  .SignUp { grid-area: SignUp;
-  }
- .logo{
-    width:50%;
-    height: 50%;
-    /* margin-left: 30%; */
-    margin-top: 5%;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr;
+   grid-template-areas: "GroupPicture SignUp";
+   min-width: 50%;
  }
- .SignUp{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    background-color: white;
-    border: solid lightgreen 3%;
-    border-radius: 3%;
-    margin: auto;
-    margin-top: 10%;
+ .GroupPicture { grid-area: GroupPicture;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   /* margin: auto; */
+   margin-left: 40%;
+ }
+ .SignUp { grid-area: SignUp;
+ }
+.logo{
+   width:50%;
+   height: 50%;
+   /* margin-left: 30%; */
+   margin-top: 5%;
+}
+.SignUp{
+   display: flex;
+   flex-direction: column;
+   width: 50%;
+   background-color: white;
+   border: solid lightgreen 3%;
+   border-radius: 3%;
+   margin: auto;
+   margin-top: 10%;
+ 
   
    
-    
-    /* margin: 15%; */
- }
- input{
-    margin: 3%;
-    border-radius: 10%;
- }
- h1{
-    color: #ED9583
- }
- .submit:hover{
-    cursor: pointer
- }
- h6:hover{
-    cursor: pointer;
-    text-decoration: underline;
-  
-    
- }
- .input{
-    justify-content: center;
-    flex-direction: column;
- }
- .submit{
-    background-color: #ED9583;
-    width: 50%;
-    /* margin-left: 10%; */
- }
- .group{
-    width: 130%;
-    /* margin: auto; */
-    height: 80%;
-    object-fit: fill;
-    margin-top: -30%;
- }
+   /* margin: 15%; */
+}
+input{
+   margin: 3%;
+   border-radius: 10%;
+   font-size: 14px;
+}
+h1{
+   color: #ED9583
+}
+.submit:hover{
+   cursor: pointer
+}
+h6:hover{
+   cursor: pointer;
+   text-decoration: underline;
+ 
+   
+}
+.input{
+   justify-content: center;
+   flex-direction: column;
+}
+.submit{
+   background-color: #ED9583;
+   width: 50%;
+   /* margin-left: 10%; */
+}
+.group{
+   width: 155%;
+   /* margin: auto; */
+   height: 125%;
+   object-fit: fill;
+   margin-top: 14%;
+}

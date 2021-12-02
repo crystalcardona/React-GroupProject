@@ -11,15 +11,19 @@ font-family: 'Rajdhani', sans-serif;
     display: flex;
     background-color: white;
     flex-direction: column;
-    overflow: scroll;
-    height: 63.5vh;
-    width: 70vw;
-    border-radius: 10px;
   }
 
+  .UserFeed{
+    overflow: scroll;
+    height: 75.5vh;
+    width: 100%;
+  }
+
+ 
+
 .userPic{
-      height: auto;
-      width: 60%;
+      height: 100px;
+      width: 100px;
       border-radius: 80%;
       box-shadow: 1px 1px 10px 10px whitesmoke;
     }
@@ -34,7 +38,7 @@ font-family: 'Rajdhani', sans-serif;
 
 .userPic:hover {
 border-radius: 20%;
--webkit-transform: rotate(360deg);
+-webkit-transform: rotate(360deg); 
    -moz-transform: rotate(360deg);
      -o-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
@@ -42,29 +46,34 @@ border-radius: 20%;
 }
   
 .posterPic{
-      height: auto;
-      width: 10%;
+      height: 70px;
+      width: 70px;
       border-radius: 80%;
       margin-left: 50px;
       margin-top: 20px;
   }
 
 .post {
--webkit-transition: all 1s ease;
+border: 5px solid black;
+border-radius: 15px;
+
+
+/* -webkit-transition: all 1s ease;
    -moz-transition: all 1s ease;
      -o-transition: all 1s ease;
     -ms-transition: all 1s ease;
-        transition: all 1s ease;
+        transition: all 1s ease; */
 }
-
+.createPost{
+  background-color: white;  
+}
 .post:hover {
-border: 10px solid whitesmoke;
-border-radius: 25px;
+border: 5px solid whitesmoke;
+border-radius: 15px;
 }
 .postPic {
       height:auto;
       width:600px;
-      border-radius: 25px;
   }
   
 .usersProfilePic{
@@ -77,14 +86,11 @@ h1, h2 {
       font-family: 'Quantico', sans-serif;
   }
 
+
 .post {
-  border-radius: 15px;
-  border-style: solid;
-  border-color: black;
-  margin-top: 20px;
-  box-shadow: 0px .5px 5px 1px #000;
-      /* overflow: hidden; */
+  /* margin-top: -40px; */
   display: inline-block;
+  justify-content: center;
 }
 .Search {
   color:white;
@@ -96,8 +102,14 @@ h1, h2 {
 .caption {
    font-size: 19px;
 }
-.UserInputs {
+.Header {
    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRNxRB9Vlu6u_gHsuRbioQVfQH2TzH7GEZsfiLnkd8EjrY6sSg9");
   opacity: 0.9;
-  margin-right: 69px;
+  margin-bottom: -10px;
+  width: 100%;
+  height: 17.7%;
+}
+
+.createPost{
+  margin-bottom: -60vh;
 }

@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import { useInputs } from "../utility/InputHooks";
+import { apiUrl } from "../utility/apiUrl";
 const CreatePost = ({fetchUsersFeed, getPosts}) => {
+    const API = apiUrl();
     const caption = useInputs("")
     const [picture, setPicture] = useState("");
     const user_id= localStorage.getItem("currentUserID")
+
     const uploadPicture = async (e) => {
         const files = e.target.files;
         const data = new FormData();
@@ -24,7 +27,7 @@ const CreatePost = ({fetchUsersFeed, getPosts}) => {
     const handlePostSubmit = async (e) => {
         e.preventDefault()
         try {
-        let res = await axios.post(`http://localhost:3001/posts/`, {
+        let res = await axios.post(`${API}/posts/`, {
                 user_id: user_id,
                 pictures: picture,
                 captions: caption.value
@@ -51,17 +54,19 @@ const CreatePost = ({fetchUsersFeed, getPosts}) => {
          }
        })
        try{
-           await axios.post(`http://localhost:3001/hashtag/`, { post_id:postID, hashtag:newHash });
+           await axios.post(`${API}/hashtag/`, { post_id:postID, hashtag:newHash });
      } catch (err){
          console.log(err)
     }
 }
     return (
+            <>
             <form onSubmit ={handlePostSubmit} className="UserFeed">
                 <input type="text" placeholder="Enter A Caption!" {...caption}/>
                  <input type="file" onChange={uploadPicture}/>
                 <button type="submit" > Post Bytes </button>
             </form>
+            </>
     )
 }
 export default CreatePost;
