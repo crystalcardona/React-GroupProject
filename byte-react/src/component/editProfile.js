@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import { useInputs } from "../utility/InputHooks";
+import { apiUrl } from "../utility/apiUrl";
 import Popup from 'reactjs-popup';
 
 const EditProfile = ({fetchUserInfo}) => { 
@@ -9,6 +10,7 @@ const EditProfile = ({fetchUserInfo}) => {
     const [loading, setLoading] = useState(false)
 
     const user_id= localStorage.getItem("currentUserID")
+    const API = apiUrl();
 
     const uploadPicture = async (e) => {
         const files = e.target.files;
@@ -32,9 +34,8 @@ const EditProfile = ({fetchUserInfo}) => {
 
     const updateProfile = async (e) => {
         e.preventDefault();
-        debugger
         try {
-            await axios.patch(`http://localhost:3001/users/${user_id}`, {userName:username.value, user_pic:userPic})
+            await axios.patch(`${API}/users/${user_id}`, {userName:username.value, user_pic:userPic})
             fetchUserInfo()
         } catch(err){
             console.log(err)
@@ -48,9 +49,13 @@ const EditProfile = ({fetchUserInfo}) => {
             <div>
                 <form onSubmit={updateProfile}>
                     <label>
-                        Edit Info
+                        Edit username:
                     </label>
                     <input type="text" placeholder="Change Username" {...username}/>
+                    <br></br>
+                    <label>
+                        Edit pic:
+                    </label>
                     <input type="file" onChange={uploadPicture}/>
                     <input type="submit"/>
                 </form>

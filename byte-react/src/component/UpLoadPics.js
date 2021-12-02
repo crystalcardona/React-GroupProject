@@ -1,22 +1,22 @@
-import React, {useState} from "react"
-import axios from "axios"
+// import React, {useState} from "react"
+// import axios from "axios"
 
-const UploadPic =()=>{
-    const[selectedFile, setSelectedFile] = useState("")
-    const fileSelectedHandler = (e)=>{
-        setSelectedFile(e.target.files[0])
-    }
+// const UploadPic =()=>{
+//     const[selectedFile, setSelectedFile] = useState("")
+//     const fileSelectedHandler = (e)=>{
+//         setSelectedFile(e.target.files[0])
+//     }
 
-    const fileUploadHandler = ()=>{
+//     const fileUploadHandler = ()=>{
         
-    }
-    return(
-        <div>
+//     }
+//     return(
+//         <div>
 
-        <input type="file" onChange={fileSelectedHandler}/>
-        <button onClick={fileUploadHandler}>Upload</button>
-        </div>
-    )
-}
+//         <input type="file" onChange={fileSelectedHandler}/>
+//         <button onClick={fileUploadHandler}>Upload</button>
+//         </div>
+//     )
+// }
  
-export default UploadPic
+// export default UploadPic
