@@ -5,27 +5,30 @@ import image2 from '../css/Assets/group.jpg';
 import {Link} from "react-router-dom";
 import "../css/LogIn.css";
 import axios from "axios";
+import {apiUrl} from '../utility/apiUrl'
 
 const LogIn = () => {
     localStorage.clear();
     const userName = useInputs("")
     const password = useInputs("")
+    const API = apiUrl()
     
 const handleSubmit = async (e) =>{
     e.preventDefault();
     try{
         debugger
-        let res = await axios.post("http://localhost:3001/users/login",{
+        let res = await axios.post(`${API}/users/login`,{
                 userName: userName.value,
                 password: password.value
             })
-            console.log(res)
             localStorage.setItem("currentUserID", res.data.user.id)
             window.location.href = "./"
         }catch(err){
             console.log(err)
+            alert("Incorrect username or password")
         }
     }
+
 
 
 
@@ -38,9 +41,9 @@ const handleSubmit = async (e) =>{
              <div className="login">
              <form className="logInPage" onSubmit = {handleSubmit}>
                 <img src={image} alt="" className="logo"/> 
-                <h2> Log In To Byte Into Your Friend's Culinary Arts. </h2>
-                <input type="text" placeholder="User Name" required {...userName}/>
-                <input type="password" placeholder="Password" required {...password}/>
+                <h2 className="welcome"> Log In To Byte Into Your Friend's Culinary Arts. </h2>
+                <input type="text" className="userNameInp" placeholder="Username" required {...userName}/>
+                <input type="password" className="passwordInp" placeholder="Password" required {...password}/>
                 <input type="submit" className="submit"/> 
             </form>
             <form className="user">
